@@ -1,0 +1,678 @@
+<title>深海と獅子座</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F0F5;
+    --surface:#FBFAFD;
+    --surface-2:#E9E6F0;
+    --text:#1B1E2C;
+    --text-soft:#4A4F63;
+    --text-faint:#767B90;
+    --border:rgba(27,30,44,0.13);
+    --accent-indigo:#3E4A78;
+    --accent-indigo-soft:#7C88B8;
+    --accent-gold:#9C7A2E;
+    --accent-gold-soft:#D9BD86;
+    --accent-ember:#9C4A3C;
+    --accent-jade:#3F6E5F;
+    --shadow:rgba(27,30,44,0.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#131420;
+      --surface:#1C1E2C;
+      --surface-2:#252838;
+      --text:#EEECF4;
+      --text-soft:#BFBCCE;
+      --text-faint:#8B899C;
+      --border:rgba(237,234,242,0.14);
+      --accent-indigo:#8F9AD1;
+      --accent-indigo-soft:#5E6690;
+      --accent-gold:#D9BD86;
+      --accent-gold-soft:#8A7040;
+      --accent-ember:#D08975;
+      --accent-jade:#7FB0A0;
+      --shadow:rgba(0,0,0,0.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131420;
+    --surface:#1C1E2C;
+    --surface-2:#252838;
+    --text:#EEECF4;
+    --text-soft:#BFBCCE;
+    --text-faint:#8B899C;
+    --border:rgba(237,234,242,0.14);
+    --accent-indigo:#8F9AD1;
+    --accent-indigo-soft:#5E6690;
+    --accent-gold:#D9BD86;
+    --accent-gold-soft:#8A7040;
+    --accent-ember:#D08975;
+    --accent-jade:#7FB0A0;
+    --shadow:rgba(0,0,0,0.45);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Shippori Mincho",serif;
+    font-weight:600;
+    text-wrap:balance;
+    color:var(--text);
+    margin:0;
+  }
+  .latin{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+  }
+  p{ margin:0; }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 28px; }
+  .wide{ max-width:960px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 72px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-glyph{
+    position:absolute;
+    top:-40px; right:-60px;
+    width:420px; height:420px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    color:var(--text-faint);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--accent-gold);
+  }
+  .hero h1{
+    position:relative;
+    font-size:clamp(2rem, 4.4vw, 3rem);
+    line-height:1.4;
+    max-width:11.5em;
+  }
+  .hero-lead{
+    position:relative;
+    margin-top:28px;
+    max-width:34em;
+    font-size:1.05rem;
+    color:var(--text-soft);
+  }
+  .badge-row{
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:34px;
+  }
+  .badge{
+    display:flex;
+    align-items:baseline;
+    gap:.5em;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:3px;
+    padding:8px 14px;
+    font-size:.86rem;
+    color:var(--text-soft);
+    box-shadow:0 1px 2px var(--shadow);
+  }
+  .badge b{
+    font-family:"Shippori Mincho",serif;
+    color:var(--text);
+    font-weight:600;
+  }
+
+  /* ---------- generic section ---------- */
+  section{ padding:64px 0; }
+  section + section{ border-top:1px solid var(--border); }
+  .section-head{ margin-bottom:36px; max-width:38em; }
+  .section-head .num{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    color:var(--accent-gold);
+    font-size:1rem;
+    display:block;
+    margin-bottom:8px;
+  }
+  .section-head h2{ font-size:1.55rem; }
+  .section-head .sub{
+    margin-top:12px;
+    color:var(--text-soft);
+    font-size:.98rem;
+  }
+  .lede{
+    max-width:42em;
+    color:var(--text-soft);
+    font-size:1.02rem;
+    margin-bottom:20px;
+  }
+
+  /* ---------- comparison card pair ---------- */
+  .pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media (max-width:680px){ .pair{ grid-template-columns:1fr; } }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:2px;
+    padding:24px 26px;
+  }
+  .card.astro{ border-left:3px solid var(--accent-indigo); }
+  .card.bazi{ border-left:3px solid var(--accent-gold); }
+  .card .tag{
+    font-size:.74rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    display:block;
+    margin-bottom:10px;
+  }
+  .card.astro .tag{ color:var(--accent-indigo); }
+  .card.bazi .tag{ color:var(--accent-gold); }
+  .card h3{
+    font-size:1.08rem;
+    margin-bottom:12px;
+  }
+  .card p{ color:var(--text-soft); font-size:.96rem; }
+  .card p + p{ margin-top:10px; }
+  .term{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    color:var(--text);
+    white-space:nowrap;
+  }
+  .synthesis{
+    margin-top:16px;
+    background:var(--surface-2);
+    border-radius:2px;
+    padding:16px 22px;
+    font-size:.94rem;
+    color:var(--text-soft);
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .synthesis::before{
+    content:"◆";
+    color:var(--accent-gold);
+    font-size:.7rem;
+    line-height:1.9;
+  }
+  .synthesis b{ color:var(--text); font-weight:600; }
+
+  /* ---------- table ---------- */
+  .table-wrap{
+    overflow-x:auto;
+    border:1px solid var(--border);
+    border-radius:2px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:620px;
+    font-size:.92rem;
+  }
+  thead th{
+    text-align:left;
+    background:var(--surface-2);
+    color:var(--text-faint);
+    font-weight:500;
+    letter-spacing:.06em;
+    font-size:.76rem;
+    text-transform:uppercase;
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+  }
+  tbody td{
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+    color:var(--text-soft);
+    vertical-align:top;
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody td:first-child{
+    color:var(--text);
+    font-weight:600;
+    white-space:nowrap;
+  }
+  tbody td:nth-child(2){ color:var(--accent-indigo); }
+  tbody td:nth-child(3){ color:var(--accent-gold); }
+  tbody tr:hover td{ background:var(--surface); }
+
+  /* ---------- three core matches ---------- */
+  .trio{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  @media (max-width:760px){ .trio{ grid-template-columns:1fr; } }
+  .trio-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:2px;
+    padding:26px 22px;
+  }
+  .trio-card .mark{
+    font-family:"Shippori Mincho",serif;
+    font-size:1.6rem;
+    color:var(--accent-gold);
+    display:block;
+    margin-bottom:14px;
+  }
+  .trio-card h3{ font-size:1.04rem; margin-bottom:12px; }
+  .trio-card .side{
+    font-size:.88rem;
+    color:var(--text-soft);
+    padding-top:10px;
+    margin-top:10px;
+    border-top:1px dashed var(--border);
+  }
+  .trio-card .side b{
+    display:block;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    font-weight:500;
+    margin-bottom:4px;
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline{
+    position:relative;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background:linear-gradient(var(--accent-gold), var(--accent-indigo));
+    opacity:.5;
+  }
+  .t-item{ position:relative; padding-bottom:38px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-28px; top:6px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent-gold);
+  }
+  .t-item.now::before{ border-color:var(--accent-ember); }
+  .t-item .year{
+    font-family:"Shippori Mincho",serif;
+    font-size:1.12rem;
+    margin-bottom:6px;
+  }
+  .t-item .desc{ color:var(--text-soft); font-size:.95rem; max-width:38em; }
+  .t-item .flag{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    padding:2px 9px;
+    border-radius:2px;
+    background:var(--surface-2);
+    color:var(--accent-ember);
+    margin-left:10px;
+    vertical-align:middle;
+  }
+
+  /* ---------- caution / focus pair ---------- */
+  .duo{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media (max-width:680px){ .duo{ grid-template-columns:1fr; } }
+  .duo-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:2px;
+    padding:24px 26px;
+  }
+  .duo-card h3{ font-size:1rem; margin-bottom:14px; display:flex; align-items:center; gap:8px;}
+  .duo-card ul{ margin:0; padding-left:1.1em; color:var(--text-soft); font-size:.94rem; }
+  .duo-card li + li{ margin-top:8px; }
+  .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+  .dot.warn{ background:var(--accent-ember); }
+  .dot.good{ background:var(--accent-jade); }
+  .src{
+    display:inline-block;
+    font-size:.68rem;
+    letter-spacing:.03em;
+    padding:1px 8px;
+    border-radius:2px;
+    margin-right:8px;
+    background:var(--surface-2);
+  }
+  .src.astro{ color:var(--accent-indigo); }
+  .src.bazi{ color:var(--accent-gold); }
+
+  /* ---------- closing ---------- */
+  .closing{
+    background:var(--surface);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:80px 0;
+  }
+  .closing blockquote{
+    margin:0;
+    font-family:"Shippori Mincho",serif;
+    font-size:clamp(1.15rem, 2.6vw, 1.5rem);
+    line-height:2;
+    color:var(--text);
+    max-width:34em;
+  }
+  .closing .attrib{
+    margin-top:26px;
+    font-size:.88rem;
+    color:var(--text-faint);
+  }
+  .final-line{
+    margin-top:30px;
+    padding-top:26px;
+    border-top:1px dashed var(--border);
+    font-size:1rem;
+    color:var(--text-soft);
+    max-width:36em;
+  }
+  footer{
+    padding:40px 0 60px;
+    text-align:center;
+    color:var(--text-faint);
+    font-size:.82rem;
+  }
+</style>
+
+<div class="hero">
+  <svg class="hero-glyph" viewBox="0 0 420 420" fill="none">
+    <circle cx="300" cy="120" r="150" stroke="var(--accent-indigo-soft)" stroke-width="1"/>
+    <circle cx="300" cy="120" r="104" stroke="var(--accent-indigo-soft)" stroke-width="1" stroke-dasharray="2 6"/>
+    <line x1="300" y1="-30" x2="300" y2="270" stroke="var(--accent-indigo-soft)" stroke-width="1"/>
+    <line x1="150" y1="120" x2="450" y2="120" stroke="var(--accent-indigo-soft)" stroke-width="1"/>
+    <rect x="252" y="330" width="64" height="64" stroke="var(--accent-gold)" stroke-width="1.4" fill="none"/>
+    <text x="284" y="368" text-anchor="middle" font-family="Shippori Mincho, serif" font-size="26" fill="var(--accent-gold)">壬</text>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">natal chart <span class="latin">&amp;</span> 四柱推命 &nbsp;統合鑑定</span>
+    <h1>深く感じて、抑えて、<br>ここぞで大きく動く人。</h1>
+    <p class="hero-lede">2014年9月28日 8:44生まれ、甥っ子さんのホロスコープと四柱推命を並べて読むと、生まれ持った気質と、これから強まっていく運気の両方に、驚くほど同じ輪郭が浮かび上がってきます。</p>
+    <div class="badge-row">
+      <span class="badge"><span class="latin">ASC</span> <b>蠍座</b></span>
+      <span class="badge"><span class="latin">MC</span> <b>獅子座</b></span>
+      <span class="badge">日主 <b>壬（水）</b></span>
+      <span class="badge">日柱 <b>壬寅</b></span>
+      <span class="badge">大運 <b>甲戌 → 乙亥</b></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="section-head">
+    <span class="num">はじめに</span>
+    <h2>二つの物差しで、同じ人を見る</h2>
+    <p class="sub">西洋占星術は天体の配置から、四柱推命は生まれた瞬間の干支から、それぞれ独立に人を読みます。方法も語彙もまったく違う二つの体系が、ここまで同じ結論にたどり着くのは、むしろ珍しいことです。以下、テーマごとに両方の見立てを並べ、最後に重なる部分をまとめます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">01</span>
+    <h2>内面の核 —— 深く感じて、抑える人</h2>
+  </div>
+  <div class="pair">
+    <div class="card astro">
+      <span class="tag">horoscope</span>
+      <h3>蠍座ASC・月＋土星（1ハウス）</h3>
+      <p>人をよく観察し、簡単には本心を見せない。感情は浅くなく、嬉しい・悲しいがかなり深いところまで行く。<span class="term">月☌土星</span>は「感じる力の強さ」と「感情を抑える力」がセットになる配置で、傷ついても顔に出さず、限界を超えると一気に噴き出す傾向があります。</p>
+    </div>
+    <div class="card bazi">
+      <span class="tag">四柱推命</span>
+      <h3>天干のみの比劫／多い印星と食傷</h3>
+      <p>比劫が天干にはあるが地支の支えがない配置。外からは自信満々で「芯の強い人」に見えるけれど、内面は脆く、本当の自信が持てない葛藤を抱えやすい。無理をして「強い顔」をしてしまう傾向があります。</p>
+      <p>加えて、金の印星（地支）は非常に用心深く、石橋を叩いて叩き壊すほど考えてから動くタイプ。木の食傷は人に気を配る優しさの反面、気が利きすぎて精神的に消耗しやすい面を持ちます。「深く感じて、内側に溜め込みやすい」性質は、比劫だけでなく印星・食傷の多さからも裏付けられます。</p>
+    </div>
+  </div>
+  <div class="synthesis"><span><b>重なる読み：</b>外側に見せる強さと、内側の繊細さが同じ人の中に同居しています。「大丈夫」と言っている時ほど、実は大丈夫でないことがある——という前提で見てあげるとよさそうです。</span></div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">02</span>
+    <h2>動く力と、社会に出る力</h2>
+  </div>
+  <div class="pair">
+    <div class="card astro">
+      <span class="tag">horoscope</span>
+      <h3>火星（射手座・2ハウス）／木星＝MC（獅子座）</h3>
+      <p>本気になると大胆で行動が速い。木星がMCとほぼ完全に重なり、「自分の存在を大きくしていく」力が強い。人前に出る、自分の名前で活動する、といった方向と相性がよく、<span class="term">木星△天王星</span>は型にはまらない方向転換をチャンスに変えます。</p>
+      <p>ただし木星は土星ともスクエア。「もっとやりたい」という拡大欲求と「ちゃんと考えないと」という慎重さが同時に存在するため、単純な勢いだけの人ではありません。</p>
+    </div>
+    <div class="card bazi">
+      <span class="tag">四柱推命</span>
+      <h3>壬（自由と大胆さ）／木の食傷</h3>
+      <p>壬は一箇所に留まることを嫌い、頭の回転が速く、大胆に物事を進める力を持つ日主。木の食傷は感性豊かで知的、束縛や上からの命令を嫌い、理解したことを自分なりに応用していく力を持ちます。</p>
+    </div>
+  </div>
+  <div class="synthesis"><span><b>重なる読み：</b>決められた道をそのまま歩くより、自分で考えて自分の判断で動くほうが力を発揮するタイプ。管理されることへの窮屈さは、協調性の欠如ではなく気質そのものです。</span></div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">03</span>
+    <h2>自分の価値を、どう作っていくか</h2>
+  </div>
+  <div class="pair">
+    <div class="card astro">
+      <span class="tag">horoscope</span>
+      <h3>2ハウスの火星＋冥王星</h3>
+      <p>「自分の力で稼ぎたい」という意識が強い一方、冥王星があることで「自分は何を持っていれば価値があるのか」というテーマを人生の中で何度か作り替えていく可能性があります。肩書きや収入を他人に決められることへの抵抗も強め。</p>
+    </div>
+    <div class="card bazi">
+      <span class="tag">四柱推命</span>
+      <h3>財星（火）——大運甲戌で地支だけ強まっている</h3>
+      <p>元々の命式では、火の財星は地支にほんの少しあるだけで、強い星ではありません。地支だけにある場合、派手なパフォーマンスはしないものの、内面は現実的で地に足がついており、人間関係を「財産」として大切にしながら社会生活を確実に営んでいく実務能力を持つタイプです。</p>
+      <p>現在の大運（甲戌・2028年頃まで）の影響で、この地支の財星が一時的に強まっている状態です。火の財は明るく陽気で周囲に元気を分け与えるタイプ。流行に敏感でフットワークが軽く情熱的な反面、根気が続かず消費癖には注意が必要という性質を持ちます。天干にはまだ火が巡っていないため、今は地支だけで強まっている段階です。</p>
+      <p>2026年（丙）・2027年（丁）の年運では天干にも火が巡るため、地支だけで強まっていたこの財の要素が、この二年で初めて表に出やすくなります。</p>
+    </div>
+  </div>
+  <div class="synthesis"><span><b>重なる読み：</b>冥王星が示す「自分の価値を何度も作り替えていく」というテーマは、四柱推命の流れとも重なります。2026・27年にはまず“結果や収入”という財のものさしが表に出て、2028年以降はそれが一旦落ち着き、代わりに“自分自身”というものさしへと移っていく——価値の基準そのものが、数年単位で移り変わっていく人だと読めます。</span></div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">04</span>
+    <h2>人とのつながり方</h2>
+  </div>
+  <div class="pair">
+    <div class="card astro">
+      <span class="tag">horoscope</span>
+      <h3>太陽（天秤座・11ハウス）／金星（乙女座・11ハウス）</h3>
+      <p>太陽が天秤座で11ハウスにあるため、人とのつながり・仲間・コミュニティは人生の重要なテーマで、表面的にはかなり社交的に見えます。ただし月は蠍座なので「誰とでも仲良く」ではなく、広い人脈を持てても本当に信頼する人はかなり限られます。</p>
+      <p>金星は乙女座で人を見る目が細かく、誠実さや約束を守るかを見る目が厳しめ。7ハウスは牡牛座なので、一度信頼した相手とは長く安定した関係を求め、恋愛は軽く終わりにくいタイプです。</p>
+    </div>
+    <div class="card bazi">
+      <span class="tag">四柱推命</span>
+      <h3>木の食傷が中心（比劫は天干のみで控えめ）</h3>
+      <p>対人面で強く出ているのは木の食傷です。人への気遣いや優しさを外に向けて発揮し、自由に人と関わることを好みます。比劫（壬・癸）も「自分は自分、人は人」という軸を添えてはいますが、天干のみで地支の支えがないぶん力としては控えめ。この方の社交性は、比劫の個人主義よりも食傷の気遣い・自由さの方が強く出ると見るのが自然です。</p>
+      <p>食傷が多いタイプの友人関係は、好き嫌いがはっきりしていて、友人関係も自然と厳選されていきます。気が合う人とはどんどん仲良くなりますが、合わないと感じるとすっと距離を置く。気遣いができるので友達からは居心地がいいと思われやすく、相手のちょっとした変化にも気づいて、困っている友達をさりげなくフォローできるタイプです。ただし気を遣いすぎると疲弊してしまうので、本当に大切にしたい友達を厳選することが大事。こだわりを否定されると一気にシャットダウンしてしまう面もあり、干渉や束縛は大の苦手です。</p>
+    </div>
+  </div>
+  <div class="synthesis"><span><b>重なる読み：</b>人が嫌いなのではなく、自分を失うほど合わせたくないだけ——広い人脈と、少数の深い信頼関係が両立するタイプです。</span></div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">05</span>
+    <h2>心の安心できる場所</h2>
+    <p class="sub">四柱推命側に直接対応する星は見当たらないため、ここはホロスコープのみの読みです。</p>
+  </div>
+  <div class="card astro" style="border-left:3px solid var(--accent-indigo); max-width:640px;">
+    <span class="tag">horoscope</span>
+    <h3>海王星＋キロン（魚座・4ハウス）</h3>
+    <p>家庭や「自分が安心できる場所」というテーマに、かなり繊細さがある配置です。家では周囲の空気や家族の感情・雰囲気を敏感に吸収しやすく、自分だけの静かな空間が必要になりやすいタイプ。「どこにいても完全には安心できない」という感覚を持つこともあり、人生のどこかで「自分にとって本当に安心できる居場所を、自分で作る」ことが大切なテーマになってきます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">06</span>
+    <h2>テーマ別対応表</h2>
+    <p class="sub">ここまでの読みを含め、二つの体系で特に重なりが大きかった項目を一覧にしました。</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>テーマ</th><th>ホロスコープ</th><th>四柱推命</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>繊細さ</td><td>蠍座月＋土星</td><td>天干比劫の内面の脆さ／木の食傷の消耗</td></tr>
+        <tr><td>人を見る力</td><td>蠍座の強さ</td><td>壬寅・印星の鋭い観察力</td></tr>
+        <tr><td>頭の良さ</td><td>蠍座の深い洞察＋木星・天王星</td><td>印星＋木の食傷</td></tr>
+        <tr><td>自由を求める</td><td>射手座火星・天王星</td><td>壬・木の食傷・比劫</td></tr>
+        <tr><td>人に管理されたくない</td><td>天王星＋射手座</td><td>食傷の「束縛・命令を嫌う」性質</td></tr>
+        <tr><td>自分のやり方で進みたい</td><td>火星2H・木星MC</td><td>比劫が強まる大運</td></tr>
+        <tr><td>好きなことを深める</td><td>蠍座＋2ハウス冥王星</td><td>印星＋傷官</td></tr>
+        <tr><td>独自の道を行く</td><td>木星△天王星</td><td>壬・比劫・食傷</td></tr>
+        <tr><td>社会で頭角を出す可能性</td><td>木星とMCの合</td><td>好きなことを追求した先の頭角</td></tr>
+        <tr><td>外は強そう・中は繊細</td><td>月＋土星</td><td>天干比劫・地支の支えの弱さ</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">07</span>
+    <h2>特に一致している核心、三つ</h2>
+  </div>
+  <div class="trio">
+    <div class="trio-card">
+      <span class="mark">一</span>
+      <h3>自由にやりたい</h3>
+      <p style="color:var(--text-soft); font-size:.94rem;">人に決められた枠の中で生きるより、自分で考えて自分で動きたいという欲求。</p>
+      <div class="side"><b>horoscope</b>射手座の火星＋天王星</div>
+      <div class="side"><b>四柱推命</b>壬＋木の食傷＋比劫</div>
+    </div>
+    <div class="trio-card">
+      <span class="mark">二</span>
+      <h3>「好き」を見つけることが鍵</h3>
+      <p style="color:var(--text-soft); font-size:.94rem;">何でも頑張れるタイプではなく、興味の対象が定まって初めて力が発揮される。</p>
+      <div class="side"><b>horoscope</b>蠍座で深掘り→火星で動く→木星＋MCで広げる</div>
+      <div class="side"><b>四柱推命</b>理解力→深掘り→傷官のこだわり→頭角</div>
+    </div>
+    <div class="trio-card">
+      <span class="mark">三</span>
+      <h3>強そうに見えて、実は繊細</h3>
+      <p style="color:var(--text-soft); font-size:.94rem;">周囲からは「大丈夫そう」に映るが、本人の中では抱えているものが多い。</p>
+      <div class="side"><b>horoscope</b>月蠍座＋土星（感じる→抑える）</div>
+      <div class="side"><b>四柱推命</b>天干比劫＋地支の支えの弱さ</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">08</span>
+    <h2>運気の流れ —— 2026年からの転換</h2>
+    <p class="sub">四柱推命側だけの時系列です。ちょうどホロスコープが示す気質が、社会の中で強まっていくタイミングと重なります。</p>
+  </div>
+  <div class="timeline">
+    <div class="t-item now">
+      <div class="year">2026〜2027年</div>
+      <div class="desc">年運に丙・丁（火）が巡り、天干にも火の要素が入ります。大運甲戌の影響で地支だけ強まっていた財星（お金・現実的な結果）が、この二年で初めて表に出やすくなります。</div>
+    </div>
+    <div class="t-item">
+      <div class="year">2028年 <span class="flag">接木運</span></div>
+      <div class="desc">大運の切り替わり。30年に一度、人生の方向性が大きく変わる転換点。これまでの方向性を必然的に変更する時期で、その前後は新しい運気に慣れるまで試行錯誤が続きます。</div>
+    </div>
+    <div class="t-item">
+      <div class="year">2028年〜（約10年間）</div>
+      <div class="desc">大運が乙亥に切り替わり、天干にしか根を持たなかった比劫（水）が、初めて地支に強い根（建禄）を持つ時期に入ります。量も増え通根も果たすため、自我（自分軸）がはっきりと強くなっていく時期です。財の勢いは一旦落ち着き、代わりに「自分自身」が主役になる時代へ。傷官も巡り、こだわりや表現したい気持ちが強まります。</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">09</span>
+    <h2>2028年からの10年、どんな人になりやすいか</h2>
+    <p class="sub">水の比劫が地支に通根し、量も増えていくこの10年は、自我（自分軸）がはっきりと強くなっていく時期です。マイペースでのんびりして見えながら、理解力が抜群でそれを応用していける時期。組織の中で人に揉まれるのは好まず、誰かの指図を受けるより自分のペースを大事にしたいタイプが強く出ます。物事の計画性はあまり得意ではありませんが、本当に夢中になれるものを見つけたときは、どこまでも追求して頭角を表せる可能性があります。</p>
+  </div>
+  <div class="duo">
+    <div class="duo-card">
+      <h3><span class="dot warn"></span>気をつけたいこと</h3>
+      <ul>
+        <li><span class="src astro">ホロスコープ</span>「大丈夫」と言いながら、実は感情を抱え込んでいることがある</li>
+        <li><span class="src astro">ホロスコープ</span>期待されると、無理をしてでも応えようとしてしまう</li>
+        <li><span class="src astro">ホロスコープ</span>やりたい気持ちが先行し、何のためにやるのか曖昧になる時がある</li>
+        <li><span class="src astro">ホロスコープ</span>「もっとやりたい」と「ちゃんと考えないと」がせめぎ合い、動けなくなる瞬間もある</li>
+        <li><span class="src bazi">四柱推命</span>金の印星が多いところに比劫が通根するので、水が一気にドバッと増えるようなイメージで、自我や感情の勢いが急に強まることがある。その流れに乗って気づけば流されていた、とならないよう、自分で舵を取る意識を持つことが大切</li>
+      </ul>
+    </div>
+    <div class="duo-card">
+      <h3><span class="dot good"></span>大切にしたい視点</h3>
+      <ul>
+        <li><span class="src bazi">四柱推命</span>一つのことをコツコツ、自分の力で貫く姿勢が運を呼ぶ（通根の開運法）</li>
+        <li>「頑張らせる」より「好きなものを一緒に探す」ほうが力が伸びる</li>
+        <li>人が嫌いなのではなく、自分を失うほど合わせたくないだけ、と理解する</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="num">10</span>
+    <h2>もう一つの、長い人生のテーマ</h2>
+  </div>
+  <div class="card astro" style="border-left:3px solid var(--accent-indigo); max-width:680px;">
+    <span class="tag">horoscope</span>
+    <h3>ノースノード（天秤座・12ハウス）／サウスノード（牡羊座・6ハウス）</h3>
+    <p>「自分一人で頑張る」「自分で全部何とかする」という方向から、「人との調和」「委ねる」「一人では見えないものを受け取る」方向へ成長していくのが、この人の生涯のテーマです。「自分でやったほうが早い」となりやすい人だからこそ、人生が進むほど、誰かと組むこと、信頼して任せること、力を抜くことが重要になってきます。</p>
+  </div>
+  <div class="synthesis"><span><b>四柱推命と合わせて見ると：</b>2028年からの10年は四柱推命では「自分自身が主役になる」時期で、一見この成長テーマ（委ねる）とは逆方向に見えます。でも順番として自然なのは、まずこの10年で自分の軸をしっかり作り、その先で少しずつ人に委ねることを覚えていく、という流れです。</span></div>
+</section>
+
+</div>
+
+<div class="closing">
+  <div class="wrap">
+    <blockquote>人より深く考え、人をよく見ている。頭の回転も速く、理解したことを自分なりに応用する力がある。<br><br>決められた枠の中で人に合わせ続けることは得意ではなく、自分が納得できることを、自分のペースで追求したい人。</blockquote>
+    <p class="final-line">本当に夢中になれるものが見つかったとき、深く掘り下げる力と、それを外へ広げていく力の両方を持っているので、そこで一気に頭角を表す可能性があります。外からは強そう・自信がありそうに見えても、内面は繊細。抱え込みすぎないことも、これから大切になってきます。</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">西洋占星術と四柱推命、二つの体系を重ねて読んだ統合鑑定です。</div>
+</footer>
